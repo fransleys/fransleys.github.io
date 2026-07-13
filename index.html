@@ -1,29 +1,146 @@
 <!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Frans Leys</title>
-  <style>
-    body {
-      min-height: 100vh;
-      margin: 0;
-      display: grid;
-      place-items: center;
-      font-family: system-ui, sans-serif;
-      background: #111827;
-      color: white;
-    }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Frans Leys — product-minded technologist, builder and photographer based in Belgium."
+    />
+    <title>Frans Leys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Frans Leys — home">Frans Leys</a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#photography">Photography</a>
+        <a href="#languages">Languages</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    main {
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Hello world 👋</h1>
-    <p>Welkom op fransleys.be</p>
-  </main>
-</body>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Product · Technology · Photography</p>
+          <h1>Hi, I’m Frans.</h1>
+          <p class="intro">
+            Product-minded technologist with a soft spot for companies, teams
+            and products that make complex things feel simple.
+          </p>
+          <p class="bio">
+            My career started in financial technology and later took me through
+            Engagor, PieSync and HubSpot — including two acquisitions and plenty
+            of lessons about growth, product and people along the way. Outside
+            of work, I enjoy photography and have my hands full raising three kids.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="#contact">Get in touch</a>
+            <span class="button button-secondary button-disabled">
+              Boris Game — coming soon
+            </span>
+          </div>
+        </div>
+
+        <figure class="portrait">
+          <img
+            src="images/frans.jpg"
+            alt="Black-and-white portrait of Frans Leys"
+            onerror="this.parentElement.classList.add('image-missing'); this.remove();"
+          />
+          <div class="portrait-placeholder" aria-hidden="true">
+            <span>FL</span>
+          </div>
+        </figure>
+      </section>
+
+      <section class="section photography" id="photography">
+        <div class="section-heading">
+          <p class="eyebrow">Photography</p>
+          <h2>Images worth keeping.</h2>
+          <p>
+            A selection of my favourite photographs will find a home here soon.
+          </p>
+        </div>
+
+        <div class="coming-soon" role="status">
+          <span class="coming-soon-mark" aria-hidden="true">＋</span>
+          <div>
+            <h3>Gallery coming soon</h3>
+            <p>The first selection is in the making.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section languages" id="languages">
+        <div class="section-heading">
+          <p class="eyebrow">Languages</p>
+          <h2>At home in more than one language.</h2>
+        </div>
+
+        <ul class="language-list">
+          <li>
+            <span class="language-name">Nederlands</span>
+            <p><strong>Nederlands</strong> is mijn moedertaal.</p>
+          </li>
+          <li>
+            <span class="language-name">Français</span>
+            <p>On me prend parfois pour un <strong>francophone</strong>.</p>
+          </li>
+          <li>
+            <span class="language-name">English</span>
+            <p>My <strong>English</strong> is fantastic.</p>
+          </li>
+          <li>
+            <span class="language-name">Italiano</span>
+            <p>Ho imparato <strong>l’italiano</strong> in Erasmus.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s talk.</h2>
+          <p>
+            You can find me on LinkedIn and Bluesky. Feel free to reach out about
+            product, technology, photography or anything worth exploring.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a
+            href="https://www.linkedin.com/in/fransleys?originalSubdomain=be"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            href="https://bsky.app/profile/fransleys.bsky.social"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Bluesky <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Frans Leys. Made in Belgium.</p>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
