@@ -16,7 +16,29 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="site-locked">
+    <div class="password-gate" id="password-gate">
+      <form class="password-card" id="password-form">
+        <p class="eyebrow">Private preview</p>
+        <h1>Work in progress.</h1>
+        <p>This website is still taking shape. Enter the password to continue.</p>
+        <div class="password-field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            autofocus
+            required
+          />
+        </div>
+        <button class="button button-primary" type="submit">Enter site</button>
+        <p class="password-error" id="password-error" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="site-content" id="site-content" inert>
     <header class="site-header">
       <a class="brand" href="#home" aria-label="Frans Leys — home">Frans Leys</a>
       <nav aria-label="Main navigation">
@@ -138,9 +160,40 @@
       <p>© <span id="year"></span> Frans Leys. Made in Belgium.</p>
       <a href="#home">Back to top ↑</a>
     </footer>
+    </div>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      const gate = document.getElementById("password-gate");
+      const siteContent = document.getElementById("site-content");
+      const passwordForm = document.getElementById("password-form");
+      const passwordInput = document.getElementById("password");
+      const passwordError = document.getElementById("password-error");
+
+      function unlockSite() {
+        document.body.classList.remove("site-locked");
+        gate.hidden = true;
+        siteContent.removeAttribute("inert");
+        sessionStorage.setItem("fransleys-preview", "unlocked");
+      }
+
+      if (sessionStorage.getItem("fransleys-preview") === "unlocked") {
+        unlockSite();
+      }
+
+      passwordForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (passwordInput.value.toLowerCase() === "boris") {
+          unlockSite();
+          return;
+        }
+
+        passwordError.textContent = "That password isn’t quite right.";
+        passwordInput.value = "";
+        passwordInput.focus();
+      });
     </script>
   </body>
 </html>
