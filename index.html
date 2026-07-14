@@ -25,6 +25,7 @@
         <a href="#career">Career</a>
         <a href="#how-i-work">How I work</a>
         <a href="#photography">Photography</a>
+        <a href="#music">Music</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -220,15 +221,8 @@
         </div>
       </section>
 
-      <section class="section photography" id="photography">
-        <div class="section-heading">
-          <p class="eyebrow">Photography</p>
-          <h2>Images worth keeping.</h2>
-          <p>
-            I shoot with a Fujifilm X-T30 III but I like to pair it with some old Nikon lenses.
-          </p>
-        </div>
-
+      <section class="section beyond-screen" id="beyond-the-screen">
+        <div class="beyond-block photography" id="photography">
         <div class="photo-gallery" aria-label="Photography gallery">
           <button class="gallery-item" type="button" data-index="0"><img src="images/website - 1.jpeg" alt="Photograph 1 by Frans Leys" loading="lazy" /></button>
           <button class="gallery-item" type="button" data-index="1"><img src="images/website - 2.jpeg" alt="Photograph 2 by Frans Leys" loading="lazy" /></button>
@@ -253,6 +247,71 @@
           <button class="gallery-item" type="button" data-index="20"><img src="images/website - 21.jpeg" alt="Photograph 21 by Frans Leys" loading="lazy" /></button>
           <button class="gallery-item gallery-item-portrait" type="button" data-index="21"><img src="images/website - 22.jpeg" alt="Photograph 22 by Frans Leys" loading="lazy" /></button>
           <button class="gallery-item" type="button" data-index="22"><img src="images/website - 23.jpeg" alt="Photograph 23 by Frans Leys" loading="lazy" /></button>
+        </div>
+        <button class="gallery-more" type="button" aria-expanded="false">
+          More photography <span aria-hidden="true">↓</span>
+        </button>
+        <div class="music-story-copy photography-copy">
+          <span class="music-number">01</span>
+          <h3>Photography</h3>
+          <p>
+            I shoot with a Fujifilm X-T30 III, usually paired with old Nikon
+            lenses. It’s another way of paying closer attention—to places,
+            people, atmosphere and rhythm.
+          </p>
+        </div>
+      </div>
+
+        <div class="beyond-block music" id="music">
+        <div class="music-heading">
+          <div>
+            <p class="eyebrow">Beyond work</p>
+            <h2>Things worth keeping, collecting and learning.</h2>
+          </div>
+          <p>
+            Outside product work, I make time for images, records and learning
+            instruments—small ways of paying attention and staying curious.
+          </p>
+        </div>
+        <div class="music-stories">
+          <article class="music-story">
+            <figure class="music-visual music-visual-grid">
+              <img src="images/music-instagram-grid.png" alt="A selection of Frans's short album reviews on Instagram" loading="lazy" />
+            </figure>
+            <div class="music-story-copy">
+              <span class="music-number">02</span>
+              <h3>Collect &amp; pass it on</h3>
+              <p>
+                We collect vinyl to share the music with our children. Over fifty
+                short record reviews turn that collection into a growing family
+                archive—musical time capsules for later.
+              </p>
+              <div class="music-card-links">
+                <a href="https://www.instagram.com/snarf.be/reels/" target="_blank" rel="noreferrer">Watch the reviews <span aria-hidden="true">↗</span></a>
+                <a href="https://www.discogs.com/user/Snarf_be/collection" target="_blank" rel="noreferrer">Browse the collection <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="music-story">
+            <div class="music-visual music-visual-triptych" aria-label="Frans learning and playing music">
+              <img src="images/music-guitar1.jpg" alt="Frans playing guitar by the sea" loading="lazy" />
+              <img src="images/music-piano1-clean.png" alt="Frans playing guitar beside a child at a small keyboard" loading="lazy" />
+              <img src="images/music-piano2.jpg" alt="Frans playing piano" loading="lazy" />
+            </div>
+            <div class="music-story-copy">
+              <span class="music-number">03</span>
+              <h3>Play &amp; learn</h3>
+              <p>
+                Guitar, bass and piano. I enjoy playing them, but perhaps even
+                more than that, I enjoy the never-ending process of learning them.
+              </p>
+              <div class="music-card-links">
+                <a href="https://www.youtube.com/@snarfbe" target="_blank" rel="noreferrer">Listen to some old recordings <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
         </div>
       </section>
 
@@ -311,6 +370,8 @@
       const careerPrevious = document.getElementById("career-previous");
       const careerNext = document.getElementById("career-next");
       const galleryItems = [...document.querySelectorAll(".gallery-item")];
+      const gallery = document.querySelector(".photo-gallery");
+      const galleryMore = document.querySelector(".gallery-more");
       const lightbox = document.getElementById("lightbox");
       const lightboxImage = document.getElementById("lightbox-image");
       const lightboxCount = document.getElementById("lightbox-count");
@@ -356,6 +417,14 @@
 
       galleryItems.forEach((item, index) => {
         item.addEventListener("click", () => openLightbox(index));
+      });
+
+      galleryMore.addEventListener("click", () => {
+        const expanded = gallery.classList.toggle("gallery-expanded");
+        galleryMore.setAttribute("aria-expanded", String(expanded));
+        galleryMore.innerHTML = expanded
+          ? 'Show less <span aria-hidden="true">↑</span>'
+          : 'More photography <span aria-hidden="true">↓</span>';
       });
 
       lightboxClose.addEventListener("click", closeLightbox);
