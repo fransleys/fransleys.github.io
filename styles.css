@@ -260,6 +260,7 @@ footer {
     overflow-y: hidden;
     scrollbar-color: var(--accent) var(--surface);
     scrollbar-width: thin;
+    box-shadow: inset -30px 0 24px -24px var(--text);
   }
 
   .beyond-screen .photography .gallery-item {
