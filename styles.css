@@ -637,13 +637,19 @@ h2 {
   font: inherit;
   font-size: 0.78rem;
   cursor: pointer;
-  transition: color 180ms ease, border-color 180ms ease;
+  transition: color 180ms ease, border-color 180ms ease, opacity 180ms ease, transform 180ms ease;
 }
 
 .gallery-more:hover,
 .gallery-more:focus-visible {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.photo-gallery.gallery-scrolling + .gallery-more {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
 }
 
 .gallery-item {

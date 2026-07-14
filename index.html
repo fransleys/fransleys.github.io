@@ -282,12 +282,11 @@
               <span class="music-number">02</span>
               <h3>Collect &amp; pass it on</h3>
               <p>
-                We collect vinyl to share the music with our children. Over fifty
-                short record reviews turn that collection into a growing family
-                archive—musical time capsules for later.
+                In our house we collect vinyls of the music that defined us in a "platenkast" to share with our children. I am recording small reviews to turn that collection into a growing family
+                archive—musical time capsules for the kids to enjoy later.
               </p>
               <div class="music-card-links">
-                <a href="https://www.instagram.com/snarf.be/reels/" target="_blank" rel="noreferrer">Watch the reviews <span aria-hidden="true">↗</span></a>
+                <a href="https://www.instagram.com/snarf.be/reels/" target="_blank" rel="noreferrer">Watch "platenkast" episodes <span aria-hidden="true">↗</span></a>
                 <a href="https://www.discogs.com/user/Snarf_be/collection" target="_blank" rel="noreferrer">Browse the collection <span aria-hidden="true">↗</span></a>
               </div>
             </div>
@@ -303,7 +302,7 @@
               <span class="music-number">03</span>
               <h3>Play &amp; learn</h3>
               <p>
-                Guitar, bass and piano. I enjoy playing them, but perhaps even
+                Guitar, piano and now bass. I enjoy playing them, but perhaps even
                 more than that, I enjoy the never-ending process of learning them.
               </p>
               <div class="music-card-links">
@@ -426,6 +425,12 @@
           ? 'Scroll right for more <span aria-hidden="true">→</span>'
           : 'More photography <span aria-hidden="true">→</span>';
       });
+
+      gallery.addEventListener("scroll", () => {
+        if (gallery.classList.contains("gallery-expanded")) {
+          gallery.classList.toggle("gallery-scrolling", gallery.scrollLeft > 8);
+        }
+      }, { passive: true });
 
       lightboxClose.addEventListener("click", closeLightbox);
       lightbox.querySelector(".lightbox-previous").addEventListener("click", () => showPhoto(activePhoto - 1));
