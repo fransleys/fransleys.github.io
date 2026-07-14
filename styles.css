@@ -200,36 +200,50 @@ footer {
 
 @media (max-width: 800px) {
   .beyond-screen {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .beyond-screen > .photography {
+    order: 1;
     grid-row: auto;
     padding: 0;
     border-top: 0;
   }
 
   .beyond-screen > .music {
-    display: block;
+    display: contents;
   }
 
   .beyond-screen .music-heading {
-    margin-top: 96px;
-    padding-top: 96px;
-    border-top: 1px solid var(--border);
+    order: 0;
+    margin: 0 0 48px;
+    padding: 0;
+    border-top: 0;
   }
 
   .beyond-screen .music-stories {
-    display: grid;
+    display: contents;
   }
 
   .beyond-screen .music-story {
+    order: 2;
     grid-row: auto;
   }
 
   .beyond-screen .music-story:first-child,
   .beyond-screen .music-story:last-child {
     grid-column: auto;
+  }
+
+  .beyond-screen .music-story:last-child {
+    order: 3;
+  }
+
+  .beyond-screen .beyond-block + .beyond-block {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
   }
 }
 
