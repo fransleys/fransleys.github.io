@@ -245,6 +245,32 @@ footer {
     padding-top: 0;
     border-top: 0;
   }
+
+  .beyond-screen .photography .photo-gallery {
+    display: flex;
+    height: 190px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+  }
+
+  .beyond-screen .photography .photo-gallery.gallery-expanded {
+    height: 190px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: var(--accent) var(--surface);
+    scrollbar-width: thin;
+  }
+
+  .beyond-screen .photography .gallery-item {
+    flex: 0 0 42%;
+    height: 100%;
+    scroll-snap-align: start;
+  }
+
+  .beyond-screen .photography .photo-gallery:not(.gallery-expanded) .gallery-item:nth-child(n + 5) {
+    display: none;
+  }
 }
 
 .site-header {
