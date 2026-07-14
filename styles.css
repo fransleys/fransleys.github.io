@@ -59,6 +59,7 @@ footer {
   margin: 0;
   padding: 0 28px 0 0;
   border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
@@ -151,6 +152,14 @@ footer {
   grid-column: 2;
 }
 
+.beyond-screen > #music {
+  grid-column: 2;
+}
+
+.beyond-screen > .playing-card {
+  grid-column: 3;
+}
+
 .beyond-screen .music-story:last-child {
   grid-column: 3;
 }
@@ -209,6 +218,7 @@ footer {
     grid-row: auto;
     padding: 0;
     border-top: 0;
+    border-right: 0;
   }
 
   .beyond-screen > .music {
