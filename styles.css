@@ -583,7 +583,7 @@ h2 {
   height: 100%;
   display: block;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.04);
+  filter: none;
 }
 
 .portrait-placeholder {
