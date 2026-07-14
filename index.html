@@ -14,31 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
   </head>
-  <body class="site-locked">
-    <div class="password-gate" id="password-gate">
-      <form class="password-card" id="password-form">
-        <p class="eyebrow">Private preview</p>
-        <h1>Work in progress.</h1>
-        <p>This website is still taking shape. Enter the password to continue.</p>
-        <div class="password-field">
-          <label for="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autocomplete="current-password"
-            autofocus
-            required
-          />
-        </div>
-        <button class="button button-primary" type="submit">Enter site</button>
-        <p class="password-error" id="password-error" role="alert" aria-live="polite"></p>
-      </form>
-    </div>
-
-    <div class="site-content" id="site-content" inert>
+  <body>
+    <div class="site-content" id="site-content">
     <header class="site-header">
       <a class="brand" href="#home" aria-label="Frans Leys — home">Frans Leys</a>
       <nav aria-label="Main navigation">
@@ -246,16 +225,34 @@
           <p class="eyebrow">Photography</p>
           <h2>Images worth keeping.</h2>
           <p>
-            A selection of my favourite photographs will find a home here soon.
+            I shoot with a Fujifilm X-T30 III.
           </p>
         </div>
 
-        <div class="coming-soon" role="status">
-          <span class="coming-soon-mark" aria-hidden="true">＋</span>
-          <div>
-            <h3>Gallery coming soon</h3>
-            <p>The first selection is in the making.</p>
-          </div>
+        <div class="photo-gallery" aria-label="Photography gallery">
+          <button class="gallery-item" type="button" data-index="0"><img src="images/website - 1.jpeg" alt="Photograph 1 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="1"><img src="images/website - 2.jpeg" alt="Photograph 2 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item gallery-item-portrait" type="button" data-index="2"><img src="images/website - 3.jpeg" alt="Photograph 3 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item gallery-item-portrait" type="button" data-index="3"><img src="images/website - 4.jpeg" alt="Photograph 4 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="4"><img src="images/website - 5.jpeg" alt="Photograph 5 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="5"><img src="images/website - 6.jpeg" alt="Photograph 6 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item gallery-item-portrait" type="button" data-index="6"><img src="images/website - 7.jpeg" alt="Photograph 7 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="7"><img src="images/website - 8.jpeg" alt="Photograph 8 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="8"><img src="images/website - 9.jpeg" alt="Photograph 9 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="9"><img src="images/website - 10.jpeg" alt="Photograph 10 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="10"><img src="images/website - 11.jpeg" alt="Photograph 11 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="11"><img src="images/website - 12.jpeg" alt="Photograph 12 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="12"><img src="images/website - 13.jpeg" alt="Photograph 13 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item gallery-item-portrait" type="button" data-index="13"><img src="images/website - 14.jpeg" alt="Photograph 14 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="14"><img src="images/website - 15.jpeg" alt="Photograph 15 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="15"><img src="images/website - 16.jpeg" alt="Photograph 16 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="16"><img src="images/website - 17.jpeg" alt="Photograph 17 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="17"><img src="images/website - 18.jpeg" alt="Photograph 18 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="18"><img src="images/website - 19.jpeg" alt="Photograph 19 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="19"><img src="images/website - 20.jpeg" alt="Photograph 20 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="20"><img src="images/website - 21.jpeg" alt="Photograph 21 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item gallery-item-portrait" type="button" data-index="21"><img src="images/website - 22.jpeg" alt="Photograph 22 by Frans Leys" loading="lazy" /></button>
+          <button class="gallery-item" type="button" data-index="22"><img src="images/website - 23.jpeg" alt="Photograph 23 by Frans Leys" loading="lazy" /></button>
         </div>
       </section>
 
@@ -293,41 +290,33 @@
     </footer>
     </div>
 
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+      <div class="lightbox-inner">
+        <div class="lightbox-topbar">
+          <p class="lightbox-count" id="lightbox-count" aria-live="polite"></p>
+          <button class="lightbox-close" type="button" aria-label="Close photo viewer">Close <span aria-hidden="true">×</span></button>
+        </div>
+        <button class="lightbox-control lightbox-previous" type="button" aria-label="Previous photograph"><span aria-hidden="true">←</span></button>
+        <figure class="lightbox-figure">
+          <img id="lightbox-image" src="" alt="" />
+        </figure>
+        <button class="lightbox-control lightbox-next" type="button" aria-label="Next photograph"><span aria-hidden="true">→</span></button>
+      </div>
+    </dialog>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      const gate = document.getElementById("password-gate");
-      const siteContent = document.getElementById("site-content");
-      const passwordForm = document.getElementById("password-form");
-      const passwordInput = document.getElementById("password");
-      const passwordError = document.getElementById("password-error");
       const careerTimeline = document.querySelector(".career-timeline");
       const careerPrevious = document.getElementById("career-previous");
       const careerNext = document.getElementById("career-next");
-
-      function unlockSite() {
-        document.body.classList.remove("site-locked");
-        gate.hidden = true;
-        siteContent.removeAttribute("inert");
-        sessionStorage.setItem("fransleys-preview", "unlocked");
-      }
-
-      if (sessionStorage.getItem("fransleys-preview") === "unlocked") {
-        unlockSite();
-      }
-
-      passwordForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        if (passwordInput.value.toLowerCase() === "boris") {
-          unlockSite();
-          return;
-        }
-
-        passwordError.textContent = "That password isn’t quite right.";
-        passwordInput.value = "";
-        passwordInput.focus();
-      });
+      const galleryItems = [...document.querySelectorAll(".gallery-item")];
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightbox-image");
+      const lightboxCount = document.getElementById("lightbox-count");
+      const lightboxClose = lightbox.querySelector(".lightbox-close");
+      let activePhoto = 0;
+      let touchStartX = 0;
 
       function updateCareerControls() {
         const maxScroll = careerTimeline.scrollWidth - careerTimeline.clientWidth;
@@ -346,6 +335,47 @@
       careerTimeline.addEventListener("scroll", updateCareerControls, { passive: true });
       window.addEventListener("resize", updateCareerControls);
       updateCareerControls();
+
+      function showPhoto(index) {
+        activePhoto = (index + galleryItems.length) % galleryItems.length;
+        const thumbnail = galleryItems[activePhoto].querySelector("img");
+        lightboxImage.src = thumbnail.src;
+        lightboxImage.alt = thumbnail.alt;
+        lightboxCount.textContent = `${activePhoto + 1} / ${galleryItems.length}`;
+      }
+
+      function openLightbox(index) {
+        showPhoto(index);
+        lightbox.showModal();
+        document.body.classList.add("lightbox-open");
+      }
+
+      function closeLightbox() {
+        lightbox.close();
+      }
+
+      galleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => openLightbox(index));
+      });
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.querySelector(".lightbox-previous").addEventListener("click", () => showPhoto(activePhoto - 1));
+      lightbox.querySelector(".lightbox-next").addEventListener("click", () => showPhoto(activePhoto + 1));
+      lightbox.addEventListener("close", () => document.body.classList.remove("lightbox-open"));
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox || event.target === lightboxImage.parentElement) closeLightbox();
+      });
+      lightbox.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") showPhoto(activePhoto - 1);
+        if (event.key === "ArrowRight") showPhoto(activePhoto + 1);
+      });
+      lightbox.addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0].clientX;
+      }, { passive: true });
+      lightbox.addEventListener("touchend", (event) => {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 50) showPhoto(activePhoto + (distance < 0 ? 1 : -1));
+      }, { passive: true });
     </script>
   </body>
 </html>
