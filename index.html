@@ -244,7 +244,7 @@
             people, atmosphere and rhythm.
           </p>
         </div>
-        <div class="photo-gallery" aria-label="Photography gallery">
+        <div class="photo-gallery music-visual-triptych photography-triptych" aria-label="Photography preview">
           <button class="gallery-item" type="button" data-index="0"><img src="images/website - 1.jpeg" alt="Photograph 1 by Frans Leys" loading="lazy" /></button>
           <button class="gallery-item" type="button" data-index="1"><img src="images/website - 2.jpeg" alt="Photograph 2 by Frans Leys" loading="lazy" /></button>
           <button class="gallery-item gallery-item-portrait" type="button" data-index="2"><img src="images/website - 3.jpeg" alt="Photograph 3 by Frans Leys" loading="lazy" /></button>
@@ -269,9 +269,9 @@
           <button class="gallery-item gallery-item-portrait" type="button" data-index="21"><img src="images/website - 22.jpeg" alt="Photograph 22 by Frans Leys" loading="lazy" /></button>
           <button class="gallery-item" type="button" data-index="22"><img src="images/website - 23.jpeg" alt="Photograph 23 by Frans Leys" loading="lazy" /></button>
         </div>
-        <button class="gallery-more" type="button" aria-expanded="false">
-          More photography <span aria-hidden="true">→</span>
-        </button>
+        <a class="gallery-more" href="photography.html">
+          Explore photography <span aria-hidden="true">→</span>
+        </a>
         </article>
 
         <article class="beyond-card music-story" id="music">
@@ -288,8 +288,8 @@
                 discover 15 or 20 years from now.
               </p>
               <div class="music-card-links">
-                <a href="https://www.instagram.com/snarf.be/reels/" target="_blank" rel="noreferrer">Watch "platenkast" episodes <span aria-hidden="true">↗</span></a>
-                <a href="https://www.discogs.com/user/Snarf_be/collection" target="_blank" rel="noreferrer">Browse the collection <span aria-hidden="true">↗</span></a>
+                <a href="https://www.instagram.com/snarf.be/reels/" target="_blank" rel="noreferrer">Watch "platenkast" episodes<span aria-hidden="true">↗</span></a>
+                <a href="https://www.discogs.com/user/Snarf_be/collection" target="_blank" rel="noreferrer">Browse on Discogs <span aria-hidden="true">↗</span></a>
               </div>
             </div>
         </article>
@@ -421,10 +421,19 @@
       galleryMore.addEventListener("click", () => {
         const expanded = gallery.classList.toggle("gallery-expanded");
         galleryMore.setAttribute("aria-expanded", String(expanded));
-        galleryMore.innerHTML = expanded
-          ? 'Scroll right for more <span aria-hidden="true">→</span>'
-          : 'More photography <span aria-hidden="true">→</span>';
+        updateGalleryLabel(expanded);
       });
+
+      function updateGalleryLabel(expanded = gallery.classList.contains("gallery-expanded")) {
+        const mobile = window.matchMedia("(max-width: 800px)").matches;
+        galleryMore.innerHTML = expanded
+          ? mobile
+            ? 'Scroll right for more <span aria-hidden="true">→</span>'
+            : 'Show less <span aria-hidden="true">↑</span>'
+          : 'More photography <span aria-hidden="true">→</span>';
+      }
+
+      window.addEventListener("resize", () => updateGalleryLabel());
 
       gallery.addEventListener("scroll", () => {
         if (gallery.classList.contains("gallery-expanded")) {

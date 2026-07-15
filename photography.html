@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Photography by Frans Leys" />
+    <title>Photography — Frans Leys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=3" />
+  </head>
+  <body>
+    <header class="site-header photography-header">
+      <a class="brand" href="index.html#beyond-the-screen">Frans Leys</a>
+      <a class="back-link" href="index.html#beyond-the-screen">← Back to Beyond work</a>
+    </header>
+
+    <main class="photography-page">
+      <div class="photography-page-heading">
+        <p class="eyebrow">Photography</p>
+        <h1>Images worth keeping.</h1>
+        <p>I shoot with a Fujifilm X-T30 III, usually paired with old Nikon lenses.</p>
+      </div>
+
+      <div class="full-photo-gallery" aria-label="Photography gallery">
+        <button class="gallery-item" type="button"><img src="images/website - 1.jpeg" alt="Photograph 1 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 2.jpeg" alt="Photograph 2 by Frans Leys" /></button>
+        <button class="gallery-item gallery-item-portrait" type="button"><img src="images/website - 3.jpeg" alt="Photograph 3 by Frans Leys" /></button>
+        <button class="gallery-item gallery-item-portrait" type="button"><img src="images/website - 4.jpeg" alt="Photograph 4 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 5.jpeg" alt="Photograph 5 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 6.jpeg" alt="Photograph 6 by Frans Leys" /></button>
+        <button class="gallery-item gallery-item-portrait" type="button"><img src="images/website - 7.jpeg" alt="Photograph 7 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 8.jpeg" alt="Photograph 8 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 9.jpeg" alt="Photograph 9 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 10.jpeg" alt="Photograph 10 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 11.jpeg" alt="Photograph 11 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 12.jpeg" alt="Photograph 12 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 13.jpeg" alt="Photograph 13 by Frans Leys" /></button>
+        <button class="gallery-item gallery-item-portrait" type="button"><img src="images/website - 14.jpeg" alt="Photograph 14 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 15.jpeg" alt="Photograph 15 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 16.jpeg" alt="Photograph 16 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 17.jpeg" alt="Photograph 17 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 18.jpeg" alt="Photograph 18 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 19.jpeg" alt="Photograph 19 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 20.jpeg" alt="Photograph 20 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 21.jpeg" alt="Photograph 21 by Frans Leys" /></button>
+        <button class="gallery-item gallery-item-portrait" type="button"><img src="images/website - 22.jpeg" alt="Photograph 22 by Frans Leys" /></button>
+        <button class="gallery-item" type="button"><img src="images/website - 23.jpeg" alt="Photograph 23 by Frans Leys" /></button>
+      </div>
+    </main>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+      <div class="lightbox-inner">
+        <div class="lightbox-topbar"><p class="lightbox-count" id="lightbox-count"></p><button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button></div>
+        <button class="lightbox-control lightbox-previous" type="button" aria-label="Previous photograph">←</button>
+        <figure class="lightbox-figure"><img id="lightbox-image" src="" alt="" /></figure>
+        <button class="lightbox-control lightbox-next" type="button" aria-label="Next photograph">→</button>
+      </div>
+    </dialog>
+    <script>
+      const items = [...document.querySelectorAll(".full-photo-gallery .gallery-item")];
+      const lightbox = document.getElementById("lightbox");
+      const image = document.getElementById("lightbox-image");
+      const count = document.getElementById("lightbox-count");
+      let active = 0;
+      function show(index) { active = (index + items.length) % items.length; const img = items[active].querySelector("img"); image.src = img.src; image.alt = img.alt; count.textContent = `${active + 1} / ${items.length}`; }
+      items.forEach((item, index) => item.addEventListener("click", () => { show(index); lightbox.showModal(); }));
+      document.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close());
+      document.querySelector(".lightbox-previous").addEventListener("click", () => show(active - 1));
+      document.querySelector(".lightbox-next").addEventListener("click", () => show(active + 1));
+      lightbox.addEventListener("keydown", event => { if (event.key === "ArrowLeft") show(active - 1); if (event.key === "ArrowRight") show(active + 1); });
+    </script>
+  </body>
+</html>
