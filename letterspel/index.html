@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#38a9e7" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Letterhelden</title>
+    <link rel="manifest" href="/letterspel/assets/manifest-DFkQMbbr.webmanifest" />
+    <script type="module" crossorigin src="/letterspel/assets/index-OYf-omC_.js"></script>
+    <link rel="stylesheet" crossorigin href="/letterspel/assets/index-Ea4TMYrt.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="start-screen" id="start-screen">
+        <div class="start-card">
+          <div class="logo-mark" aria-hidden="true">Aa</div>
+          <p class="eyebrow">Letterhelden</p>
+          <h1>Wie gaat spelen?</h1>
+          <p class="start-copy">Kies je foto en begin aan een ronde met vijf familienamen.</p>
+          <div class="profile-grid" aria-label="Kies je profiel">
+            <button class="profile-button" type="button" data-profile="jonas">
+              <img src="/letterspel/images/family/jonas.jpg" alt="" /><strong>Jonas</strong><span>Extra uitdaging</span>
+            </button>
+            <button class="profile-button" type="button" data-profile="ruben">
+              <img src="/letterspel/images/family/ruben.jpg" alt="" /><strong>Ruben</strong><span>Rustig oefenen</span>
+            </button>
+            <button class="profile-button" type="button" data-profile="otis">
+              <img src="/letterspel/images/family/otis.jpg" alt="" /><strong>Otis</strong><span>Rustig oefenen</span>
+            </button>
+            <button class="profile-button" type="button" data-profile="sam">
+              <img src="/letterspel/images/family/sam.jpg" alt="" /><strong>Sam</strong><span>Extra uitdaging</span>
+            </button>
+            <button class="profile-button" type="button" data-profile="jader">
+              <img src="/letterspel/images/family/jader.jpg" alt="" /><strong>Jader</strong><span>Extra uitdaging</span>
+            </button>
+            <button class="profile-button" type="button" data-profile="mateo">
+              <img src="/letterspel/images/family/mateo.jpg" alt="" /><strong>Mateo</strong><span>Extra uitdaging</span>
+            </button>
+          </div>
+          <label class="objects-option">
+            <input id="include-objects" type="checkbox" />
+            <span class="checkmark" aria-hidden="true">✓</span>
+            <span><strong>Ook dieren en voorwerpen</strong><small>Mix familienamen met herkenbare woorden</small></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="game-screen" id="game-screen" hidden>
+        <header class="topbar">
+          <div class="brand">
+            <span class="brand-badge">Aa</span>
+            <div><small>Letterhelden</small><strong>Wie is dit?</strong></div>
+          </div>
+          <div class="progress" id="progress" aria-label="Voortgang"></div>
+          <div class="header-actions">
+            <div class="language-picker" aria-label="Taal voor voorwerpen">
+              <button type="button" data-language="nl" aria-label="Nederlands">NL</button>
+              <button type="button" data-language="en" aria-label="English">EN</button>
+              <button type="button" data-language="es" aria-label="Español">ES</button>
+            </div>
+            <button class="active-profile" id="active-profile" type="button" aria-label="Ander profiel kiezen">
+              <img id="active-profile-photo" src="" alt="" /><span id="active-profile-name"></span>
+            </button>
+            <button class="sound-button" id="sound-button" type="button" aria-label="Geluid uitzetten" aria-pressed="false">
+              <span aria-hidden="true">🔊</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="game-layout">
+          <aside class="cheer-card" aria-live="polite">
+            <div class="speech-bubble" id="speech-bubble">Papa helpt je!</div>
+            <img id="papa-avatar" src="/letterspel/images/avatars/papa/papa-idle.png" alt="Papa" />
+            <strong id="papa-label">Papa kijkt mee</strong>
+            <span id="papa-subtitle">Jij kunt dit!</span>
+          </aside>
+
+          <section class="play-card">
+            <div class="person-card">
+              <img id="family-photo" src="" alt="Familiefoto" />
+              <div class="object-emoji" id="object-emoji" aria-hidden="true" hidden></div>
+              <span class="photo-shine" aria-hidden="true"></span>
+            </div>
+
+            <div class="puzzle-area">
+              <p class="prompt">Maak de naam</p>
+              <div class="answer-words" id="answer-words" aria-label="Jouw antwoord"></div>
+              <div class="letter-bank" id="letter-bank" aria-label="Beschikbare letters"></div>
+              <div class="edit-actions">
+                <button class="clear-button" id="backspace-button" type="button">⌫ Laatste letter</button>
+                <button class="clear-button" id="clear-button" type="button">↶ Opnieuw</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="finish-screen" id="finish-screen" hidden>
+        <div class="finish-card">
+          <div class="finish-stars" aria-hidden="true">★ ★ ★</div>
+          <img src="/letterspel/images/avatars/papa/papa-correct.png" alt="Blije papa" />
+          <p class="eyebrow">Ronde klaar</p>
+          <h2 id="finish-title">Fantastisch gedaan!</h2>
+          <p>Je hebt alle namen gevonden.</p>
+          <button class="primary-button" id="again-button" type="button">Nog een ronde <span>↻</span></button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

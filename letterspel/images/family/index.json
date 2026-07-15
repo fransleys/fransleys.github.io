@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "cards": [
+    { "id": "jonas", "name": "Jonas", "image": "jonas.jpg", "letters": ["J", "O", "N", "A", "S"] },
+    { "id": "bompa", "name": "Bompa", "image": "bompa.jpg", "letters": ["B", "O", "M", "P", "A"] },
+    { "id": "omi", "name": "Omi", "image": "omi.jpg", "letters": ["O", "M", "I"] },
+    { "id": "mama", "name": "Mama", "image": "mama.jpg", "letters": ["M", "A", "M", "A"] },
+    { "id": "papa", "name": "Papa", "image": "papa.jpg", "letters": ["P", "A", "P", "A"] },
+    { "id": "otis", "name": "Otis", "image": "otis.jpg", "letters": ["O", "T", "I", "S"] },
+    { "id": "ruben", "name": "Ruben", "image": "ruben.jpg", "letters": ["R", "U", "B", "E", "N"] },
+    { "id": "opi", "name": "Opi", "image": "opi.jpg", "letters": ["O", "P", "I"] },
+    { "id": "jader", "name": "Jader", "image": "jader.jpg", "letters": ["J", "A", "D", "E", "R"] },
+    { "id": "mateo", "name": "Mateo", "image": "mateo.jpg", "letters": ["M", "A", "T", "E", "O"] },
+    { "id": "meetje", "name": "Meetje", "image": "meetje.jpg", "letters": ["M", "E", "E", "T", "J", "E"] },
+    { "id": "nonkel-thomas", "name": "Nonkel Thomas", "image": "nonkel-thomas.jpg", "letters": ["N", "O", "N", "K", "E", "L", "T", "H", "O", "M", "A", "S"], "words": ["NONKEL", "THOMAS"] },
+    { "id": "sam", "name": "Sam", "image": "sam.jpg", "letters": ["S", "A", "M"] },
+    { "id": "auntie-sarah", "name": "Auntie Sarah", "image": "auntie-sarah.jpg", "letters": ["A", "U", "N", "T", "I", "E", "S", "A", "R", "A", "H"], "words": ["AUNTIE", "SARAH"] },
+    { "id": "peter", "name": "Peter", "image": "peter.jpg", "letters": ["P", "E", "T", "E", "R"] },
+    { "id": "peetje-pieter", "name": "Peetje Pieter", "image": "peetje-pieter.jpg", "letters": ["P", "E", "E", "T", "J", "E", "P", "I", "E", "T", "E", "R"], "words": ["PEETJE", "PIETER"] },
+    { "id": "peetje-ash", "name": "Peetje Ash", "image": "peetje-ash.jpg", "letters": ["P", "E", "E", "T", "J", "E", "A", "S", "H"], "words": ["PEETJE", "ASH"] },
+    { "id": "mutti", "name": "Mutti", "image": "mutti.jpg", "letters": ["M", "U", "T", "T", "I"] },
+    { "id": "tio-johan", "name": "Tio Johan", "image": "tio-johan.jpg", "letters": ["T", "I", "O", "J", "O", "H", "A", "N"], "words": ["TIO", "JOHAN"] },
+    { "id": "frieda", "name": "Frieda", "image": "frieda.jpg", "letters": ["F", "R", "I", "E", "D", "A"] },
+    { "id": "meetje-ellen", "name": "Meetje Ellen", "image": "meetje-ellen.jpg", "letters": ["M", "E", "E", "T", "J", "E", "E", "L", "L", "E", "N"], "words": ["MEETJE", "ELLEN"] }
+  ]
+}

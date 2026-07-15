@@ -1,0 +1,11 @@
+{
+  "name": "Letterhelden",
+  "short_name": "Letterhelden",
+  "description": "Een persoonlijk letterspel voor de familie.",
+  "start_url": "/letterspel/",
+  "scope": "/letterspel/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#dff5ff",
+  "theme_color": "#31a8e8"
+}

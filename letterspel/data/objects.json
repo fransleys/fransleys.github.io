@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "objects": [
+    { "id": "dog", "category": "animals", "emoji": "🐕", "names": { "nl": "Hond", "en": "Dog", "es": "Perro" } },
+    { "id": "cat", "category": "animals", "emoji": "🐈", "names": { "nl": "Kat", "en": "Cat", "es": "Gato" } },
+    { "id": "fish", "category": "animals", "emoji": "🐟", "names": { "nl": "Vis", "en": "Fish", "es": "Pez" } },
+    { "id": "cow", "category": "animals", "emoji": "🐄", "names": { "nl": "Koe", "en": "Cow", "es": "Vaca" } },
+    { "id": "horse", "category": "animals", "emoji": "🐎", "names": { "nl": "Paard", "en": "Horse", "es": "Caballo" } },
+    { "id": "sheep", "category": "animals", "emoji": "🐑", "names": { "nl": "Schaap", "en": "Sheep", "es": "Oveja" } },
+    { "id": "monkey", "category": "animals", "emoji": "🐒", "names": { "nl": "Aap", "en": "Monkey", "es": "Mono" } },
+    { "id": "bear", "category": "animals", "emoji": "🐻", "names": { "nl": "Beer", "en": "Bear", "es": "Oso" } },
+    { "id": "frog", "category": "animals", "emoji": "🐸", "names": { "nl": "Kikker", "en": "Frog", "es": "Rana" } },
+
+    { "id": "chair", "category": "home", "emoji": "🪑", "names": { "nl": "Stoel", "en": "Chair", "es": "Silla" } },
+    { "id": "bed", "category": "home", "emoji": "🛏️", "names": { "nl": "Bed", "en": "Bed", "es": "Cama" } },
+    { "id": "lamp", "category": "home", "emoji": "💡", "names": { "nl": "Lamp", "en": "Lamp", "es": "Lámpara" } },
+    { "id": "clock", "category": "home", "emoji": "🕰️", "names": { "nl": "Klok", "en": "Clock", "es": "Reloj" } },
+    { "id": "book", "category": "home", "emoji": "📕", "names": { "nl": "Boek", "en": "Book", "es": "Libro" } },
+    { "id": "key", "category": "home", "emoji": "🔑", "names": { "nl": "Sleutel", "en": "Key", "es": "Llave" } },
+    { "id": "bucket", "category": "home", "emoji": "🪣", "names": { "nl": "Emmer", "en": "Bucket", "es": "Cubo" } },
+    { "id": "candle", "category": "home", "emoji": "🕯️", "names": { "nl": "Kaars", "en": "Candle", "es": "Vela" } },
+
+    { "id": "apple", "category": "food", "emoji": "🍎", "names": { "nl": "Appel", "en": "Apple", "es": "Manzana" } },
+    { "id": "banana", "category": "food", "emoji": "🍌", "names": { "nl": "Banaan", "en": "Banana", "es": "Plátano" } },
+    { "id": "pear", "category": "food", "emoji": "🍐", "names": { "nl": "Peer", "en": "Pear", "es": "Pera" } },
+    { "id": "bread", "category": "food", "emoji": "🍞", "names": { "nl": "Brood", "en": "Bread", "es": "Pan" } },
+    { "id": "cheese", "category": "food", "emoji": "🧀", "names": { "nl": "Kaas", "en": "Cheese", "es": "Queso" } },
+    { "id": "milk", "category": "food", "emoji": "🥛", "names": { "nl": "Melk", "en": "Milk", "es": "Leche" } },
+    { "id": "carrot", "category": "food", "emoji": "🥕", "names": { "nl": "Wortel", "en": "Carrot", "es": "Zanahoria" } },
+    { "id": "egg", "category": "food", "emoji": "🥚", "names": { "nl": "Ei", "en": "Egg", "es": "Huevo" } },
+
+    { "id": "tree", "category": "outside", "emoji": "🌳", "names": { "nl": "Boom", "en": "Tree", "es": "Árbol" } },
+    { "id": "flower", "category": "outside", "emoji": "🌼", "names": { "nl": "Bloem", "en": "Flower", "es": "Flor" } },
+    { "id": "sun", "category": "outside", "emoji": "☀️", "names": { "nl": "Zon", "en": "Sun", "es": "Sol" } },
+    { "id": "cloud", "category": "outside", "emoji": "☁️", "names": { "nl": "Wolk", "en": "Cloud", "es": "Nube" } },
+    { "id": "house", "category": "outside", "emoji": "🏠", "names": { "nl": "Huis", "en": "House", "es": "Casa" } },
+    { "id": "boat", "category": "outside", "emoji": "⛵", "names": { "nl": "Boot", "en": "Boat", "es": "Barco" } },
+    { "id": "bicycle", "category": "outside", "emoji": "🚲", "names": { "nl": "Fiets", "en": "Bicycle", "es": "Bicicleta" } },
+    { "id": "car", "category": "outside", "emoji": "🚗", "names": { "nl": "Auto", "en": "Car", "es": "Coche" } },
+
+    { "id": "shoe", "category": "clothes", "emoji": "👟", "names": { "nl": "Schoen", "en": "Shoe", "es": "Zapato" } },
+    { "id": "coat", "category": "clothes", "emoji": "🧥", "names": { "nl": "Jas", "en": "Coat", "es": "Chaqueta" } },
+    { "id": "hand", "category": "clothes", "emoji": "✋", "names": { "nl": "Hand", "en": "Hand", "es": "Mano" } }
+  ]
+}

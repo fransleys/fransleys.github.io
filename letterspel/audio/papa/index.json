@@ -1,0 +1,26 @@
+{
+  "speaker": "papa",
+  "source": "papa_raw.m4a",
+  "categories": {
+    "correct": [
+      { "id": "papa-correct-01", "file": "correct/papa-correct-01-goed-antwoord.mp3", "text": "Goed antwoord!", "weight": 4 },
+      { "id": "papa-correct-02", "file": "correct/papa-correct-02-dat-is-juist.mp3", "text": "Dat is juist!", "weight": 4 },
+      { "id": "papa-correct-03", "file": "correct/papa-correct-03-heel-goed.mp3", "text": "Heel goed!", "weight": 4 },
+      { "id": "papa-correct-04", "file": "correct/papa-correct-04-goed-gedaan.mp3", "text": "Goed gedaan!", "weight": 4 },
+      { "id": "papa-correct-05", "file": "correct/papa-correct-05-helemaal-juist.mp3", "text": "Ja, helemaal juist!", "weight": 2 },
+      { "id": "papa-correct-06", "file": "correct/papa-correct-06-knap-gevonden.mp3", "text": "Wauw, knap gevonden!", "weight": 2 },
+      { "id": "papa-correct-07", "file": "correct/papa-correct-07-super-goed-bezig.mp3", "text": "Super, goed bezig!", "weight": 2 },
+      { "id": "papa-correct-08", "file": "correct/papa-correct-08-papa-is-trots.mp3", "text": "Fantastisch! Papa is trots op jou!", "weight": 1 }
+    ],
+    "retry": [
+      { "id": "papa-retry-01", "file": "retry/papa-retry-01-probeer-nog-eens.mp3", "text": "Probeer nog eens.", "weight": 4 },
+      { "id": "papa-retry-02", "file": "retry/papa-retry-02-nog-niet.mp3", "text": "Nee, dat is het nog niet.", "weight": 4 },
+      { "id": "papa-retry-03", "file": "retry/papa-retry-03-kijk-nog-eens-goed.mp3", "text": "Kijk nog eens goed.", "weight": 4 },
+      { "id": "papa-retry-04", "file": "retry/papa-retry-04-bijna.mp3", "text": "Bijna, probeer het nog een keertje.", "weight": 3 },
+      { "id": "papa-retry-05", "file": "retry/papa-retry-05-geen-probleem.mp3", "text": "Geen probleem, je mag opnieuw proberen.", "weight": 2 },
+      { "id": "papa-retry-06", "file": "retry/papa-retry-06-je-kan-het.mp3", "text": "Denk nog eens na. Je kan het!", "weight": 2 },
+      { "id": "papa-retry-07", "file": "retry/papa-retry-07-tel-rustig.mp3", "text": "Tel nog eens rustig.", "weight": 2, "context": "counting" },
+      { "id": "papa-retry-08", "file": "retry/papa-retry-08-papa-helpt.mp3", "text": "Geeft niks. Papa helpt je. Probeer nog eens.", "weight": 1 }
+    ]
+  }
+}
