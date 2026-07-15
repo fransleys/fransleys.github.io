@@ -536,6 +536,11 @@ h2 {
   color: #ff8f70;
 }
 
+.company-mark.next-chapter {
+  color: var(--accent);
+  border-style: dashed;
+}
+
 .company-arrow {
   color: var(--muted);
 }
@@ -574,6 +579,20 @@ h2 {
   max-width: 560px;
   margin: 10px 0 0;
   color: var(--muted);
+}
+
+.career-next-link {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--text);
+  font-size: 0.82rem;
+  transition: color 180ms ease, gap 180ms ease;
+}
+
+.career-next-link:hover {
+  gap: 12px;
+  color: var(--accent);
 }
 
 .actions {
