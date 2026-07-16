@@ -776,6 +776,12 @@ h2 {
   object-fit: contain;
 }
 
+.full-photo-gallery .gallery-item.gallery-item-portrait,
+.full-photo-gallery .gallery-item.gallery-item-portrait img {
+  height: auto;
+  aspect-ratio: auto;
+}
+
 @media (max-width: 800px) {
   .full-photo-gallery {
     column-count: 2;
