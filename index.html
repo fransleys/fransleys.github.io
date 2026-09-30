@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Frans Leys — product-minded builder"
+      content="Frans Leys — product, technology and customers, with a soft spot for making software work together."
     />
     <title>Frans Leys</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
     <div class="site-content" id="site-content">
@@ -33,12 +33,13 @@
       <section class="hero" id="home">
         <div class="hero-copy">          <h1>Hi, I’m Frans.</h1>
           <p class="intro">
-            Product-minded builder with a soft spot for companies, teams
-            and products that make complex things feel simple.
+            I work where product, technology and customers meet — with a soft
+            spot for making software work together.
           </p>
           <p class="bio">
-            My career started in finance and later took me through Ghent-based companies Engagor, PieSync and HubSpot, teaching me plenty about launching products in
-            growing teams. Outside of work, I enjoy music and photography and
+            From banking and enterprise sales to PieSync and product management
+            at HubSpot, I’ve worked across the commercial and technical sides
+            of software. Outside of work, I enjoy music and photography and
             have my hands full raising three kids.
           </p>
           <div class="actions">
@@ -64,37 +65,28 @@
         <div class="section-heading career-heading">
           <h2>Career built through change.</h2>
           <p>
-            A career shaped by growing products, evolving teams and companies
-            becoming part of something bigger.
+            From online banking and enterprise customers to making software
+            work together. Most recently at PieSync and HubSpot.
           </p>
-        </div>
-
-        <div class="career-controls" aria-label="Career timeline controls">
-          <span>Explore the timeline</span>
-          <button class="career-control" id="career-previous" type="button" aria-label="Previous career chapter">
-            <span aria-hidden="true">←</span>
-          </button>
-          <button class="career-control" id="career-next" type="button" aria-label="Next career chapter">
-            <span aria-hidden="true">→</span>
-          </button>
         </div>
 
         <ol class="career-timeline">
           <li class="career-step">
-            <div class="company-journey" aria-label="Fortis Bank became BNP Paribas Fortis">
-              <span class="company-mark fortis">Fortis Bank</span>
+            <div class="company-journey" aria-label="PieSync joined HubSpot">
+              <span class="company-mark piesync">PieSync</span>
               <span class="company-arrow" aria-hidden="true">→</span>
-              <span class="company-mark bnppf">BNP Paribas Fortis</span>
-              <span class="career-period">2006–2013</span>
+              <span class="company-mark hubspot">HubSpot</span>
+              <span class="career-period">2017–2026</span>
             </div>
             <div class="career-story">
-              <span class="career-number">01</span>
+              <span class="career-number">03</span>
               <div>
-                <h3>Starting out in financial technology</h3>
+                <h3>From integration startup to product management</h3>
                 <p>
-                  I began my career where finance, software and large-scale
-                  operations meet. Fortis became BNP Paribas Fortis along the
-                  way — a first acquisition story I can’t claim much credit for.
+                  I helped PieSync through its acquisition by HubSpot in 2019
+                  and helped integrate it into HubSpot’s integration architecture.
+                  Along the way, I moved from solutions engineering to
+                  go-to-market work, then Product Manager and Senior Product Manager.
                 </p>
               </div>
             </div>
@@ -114,29 +106,30 @@
               <div>
                 <h3>Learning how a scale-up grows</h3>
                 <p>
-                  At Engagor, a social media engagement SaaS company, I worked across customers, solutions and the
-                  product itself. Engagor was acquired by Clarabridge, later Qualtrics. I started out as a somewhat naive account executive and eventually moved into solutions engineering.
+                  At Engagor, a social media engagement SaaS company, I sold to
+                  major transport companies and telcos. I started as an account
+                  executive, then moved into solutions engineering,
+                  getting closer to the technical side of customer problems.
                 </p>
               </div>
             </div>
           </li>
 
           <li class="career-step">
-            <div class="company-journey" aria-label="PieSync joined HubSpot">
-              <span class="company-mark piesync">PieSync</span>
+            <div class="company-journey" aria-label="Fortis Bank became BNP Paribas Fortis">
+              <span class="company-mark fortis">Fortis Bank</span>
               <span class="company-arrow" aria-hidden="true">→</span>
-              <span class="company-mark hubspot">HubSpot</span>
-              <span class="career-period">2017–2026</span>
+              <span class="company-mark bnppf">BNP Paribas Fortis</span>
+              <span class="career-period">2006–2013</span>
             </div>
             <div class="career-story">
-              <span class="career-number">03</span>
+              <span class="career-number">01</span>
               <div>
-                <h3>From integration startup to product management</h3>
+                <h3>Starting out in financial technology</h3>
                 <p>
-                  PieSync’s 2019 acquisition brought me to HubSpot. I stayed for the
-                  next chapter, moving from SE to GTM Specialist,
-                  Product Manager and Senior Product Manager — deepening my craft
-                  as an individual contributor inside a global product team.
+                  At Fortis, I worked on PC Banking and SEPA Direct Debit.
+                  Fortis became BNP Paribas Fortis along the
+                  way — a first acquisition story I can’t claim much credit for.
                 </p>
               </div>
             </div>
@@ -386,9 +379,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      const careerTimeline = document.querySelector(".career-timeline");
-      const careerPrevious = document.getElementById("career-previous");
-      const careerNext = document.getElementById("career-next");
       const galleryItems = [...document.querySelectorAll(".gallery-item")];
       const gallery = document.querySelector(".photo-gallery");
       const galleryMore = document.querySelector(".gallery-more");
@@ -398,24 +388,6 @@
       const lightboxClose = lightbox.querySelector(".lightbox-close");
       let activePhoto = 0;
       let touchStartX = 0;
-
-      function updateCareerControls() {
-        const maxScroll = careerTimeline.scrollWidth - careerTimeline.clientWidth;
-        careerPrevious.disabled = careerTimeline.scrollLeft <= 2;
-        careerNext.disabled = careerTimeline.scrollLeft >= maxScroll - 2;
-      }
-
-      function scrollCareer(direction) {
-        const chapter = careerTimeline.querySelector(".career-step");
-        const distance = chapter.getBoundingClientRect().width;
-        careerTimeline.scrollBy({ left: direction * distance, behavior: "smooth" });
-      }
-
-      careerPrevious.addEventListener("click", () => scrollCareer(-1));
-      careerNext.addEventListener("click", () => scrollCareer(1));
-      careerTimeline.addEventListener("scroll", updateCareerControls, { passive: true });
-      window.addEventListener("resize", updateCareerControls);
-      updateCareerControls();
 
       function showPhoto(index) {
         activePhoto = (index + galleryItems.length) % galleryItems.length;

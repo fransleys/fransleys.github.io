@@ -405,89 +405,37 @@ h2 {
   padding-block: 96px;
 }
 
-.career-controls {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-top: 40px;
-}
-
-.career-controls > span {
-  margin-right: 6px;
-  color: var(--muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.career-control {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--text);
-  font: inherit;
-  cursor: pointer;
-  transition: border-color 150ms ease, color 150ms ease, transform 150ms ease;
-}
-
-.career-control:hover:not(:disabled),
-.career-control:focus-visible {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.career-control:disabled {
-  color: #555a62;
-  cursor: default;
-  opacity: 0.55;
-}
-
 .career-timeline {
-  display: flex;
-  margin: 18px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 40px 0 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-  scrollbar-color: var(--accent) var(--surface);
-  scrollbar-width: thin;
-}
-
-.career-timeline::-webkit-scrollbar {
-  height: 8px;
-}
-
-.career-timeline::-webkit-scrollbar-track {
-  background: var(--surface);
-}
-
-.career-timeline::-webkit-scrollbar-thumb {
-  border: 2px solid var(--surface);
-  background: var(--accent);
 }
 
 .career-step {
-  flex: 0 0 min(64%, 700px);
+  min-width: 0;
   display: grid;
-  grid-template-columns: 1fr;
   align-content: start;
   gap: 28px;
-  padding: 34px 32px 34px 0;
+  padding: 30px 24px;
   border-right: 1px solid var(--border);
-  scroll-snap-align: start;
 }
 
-.career-step + .career-step {
-  padding-left: 32px;
+.career-step:nth-child(3) {
+  border-right: 0;
+}
+
+.career-next-step {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border);
+  border-right: 0;
+}
+
+.career-next-step .career-story p {
+  max-width: 760px;
 }
 
 .company-journey {
@@ -546,7 +494,7 @@ h2 {
 }
 
 .career-period {
-  margin-left: auto;
+  flex-basis: 100%;
   color: var(--muted);
   font-size: 0.7rem;
   font-variant-numeric: tabular-nums;
@@ -1289,9 +1237,17 @@ footer {
     grid-template-columns: 0.5fr 2fr 0.5fr;
   }
 
+  .career-timeline {
+    grid-template-columns: 1fr;
+  }
+
   .career-step {
-    flex-basis: 76%;
     gap: 24px;
+    border-right: 0;
+  }
+
+  .career-step + .career-step {
+    border-top: 1px solid var(--border);
   }
 
   .skill-grid {
@@ -1381,13 +1337,9 @@ footer {
   }
 
   .career-step {
-    flex-basis: 86%;
-    padding: 30px 20px 30px 0;
+    padding: 30px 0;
   }
 
-  .career-step + .career-step {
-    padding-left: 20px;
-  }
 
   .photo-gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
