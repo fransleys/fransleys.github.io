@@ -141,10 +141,10 @@
     next.disabled = current === steps.length - 1;
   }
 
-  // Skill and Beyond tiles open into a sheet; the card itself is reused so
+  // Beyond tiles open into a sheet; the card itself is reused so
   // links and the photo viewer keep working.
   function buildSheets() {
-    document.querySelectorAll(".skill-card, .beyond-card").forEach((card) => {
+    document.querySelectorAll(".beyond-card").forEach((card) => {
       const close = document.createElement("button");
       close.type = "button";
       close.className = "sheet-close";

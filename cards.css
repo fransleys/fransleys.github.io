@@ -35,12 +35,13 @@ body.cards main > section {
   inset: 0;
   display: none;
   flex-direction: column;
-  justify-content: center;
-  gap: 18px;
+  justify-content: safe center;
+  gap: 14px;
   min-height: 0;
   margin: 0;
   padding: max(20px, env(safe-area-inset-top, 0px)) 20px 16px;
   border: 0;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -329,7 +330,6 @@ body.cards .music-heading {
   order: -1;
 }
 
-body.cards .skill-card,
 body.cards .beyond-card {
   position: relative;
   display: block;
@@ -344,13 +344,11 @@ body.cards .beyond-card {
   transition: transform 140ms ease, border-color 140ms ease;
 }
 
-body.cards .skill-card:active,
 body.cards .beyond-card:active {
   transform: scale(0.985);
   border-color: var(--accent);
 }
 
-body.cards .skill-card::after,
 body.cards .beyond-card::after {
   content: "+";
   position: absolute;
@@ -362,7 +360,6 @@ body.cards .beyond-card::after {
   line-height: 1;
 }
 
-body.cards .skill-card h3,
 body.cards .beyond-card h3 {
   margin: 2px 0 0;
   min-height: 0;
@@ -370,16 +367,9 @@ body.cards .beyond-card h3 {
   line-height: 1.2;
 }
 
-body.cards .skill-card .skill-number,
 body.cards .beyond-card .music-number {
   margin: 0;
   font-size: 0.72rem;
-}
-
-/* Closed state: title only for skills */
-body.cards .skill-card:not(.is-open) > p,
-body.cards .skill-card:not(.is-open) .language-chips {
-  display: none;
 }
 
 /* Closed state: short teaser plus one image for beyond cards */
@@ -673,4 +663,82 @@ body.cards .contact-links a {
   body.cards .is-open {
     animation: none !important;
   }
+}
+
+/* Work: four static cards, no tapping needed */
+body.cards .skill-grid {
+  gap: 10px;
+}
+
+body.cards .skill-card {
+  min-height: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+body.cards .skill-card .skill-number {
+  display: inline;
+  margin: 0 8px 0 0;
+  font-size: 0.7rem;
+}
+
+body.cards .skill-card h3 {
+  display: inline;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+body.cards .skill-card > p {
+  max-width: none;
+  margin: 6px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+body.cards .language-chips {
+  gap: 6px;
+  margin-top: 10px;
+}
+
+body.cards .skill-card .language-chip {
+  flex-basis: auto;
+  padding: 6px 9px;
+  font-size: 0.7rem;
+}
+
+body.cards .skill-card .language-tooltip {
+  left: 0;
+  transform: translate(0, 5px);
+}
+
+body.cards .skill-card .language-chip:focus .language-tooltip {
+  transform: translate(0, 0);
+}
+
+body.cards .how-i-work .eyebrow {
+  display: none;
+}
+
+body.cards .how-i-work h2 {
+  font-size: 1.6rem;
+}
+
+body.cards .skill-card {
+  padding: 12px 14px;
+}
+
+body.cards .skill-card > p {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+body.cards .skill-grid {
+  gap: 8px;
+}
+
+body.cards .language-chips {
+  margin-top: 8px;
 }
