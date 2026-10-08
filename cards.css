@@ -190,8 +190,54 @@ body.cards .eyebrow {
 body.cards .career-timeline {
   display: block;
   margin: 0;
-  padding: 0;
+  padding: 0 0 26px;
   list-style: none;
+  border-top: 0;
+}
+
+.stepper {
+  display: none;
+}
+
+body.cards .stepper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.stepper button {
+  padding: 8px 0 0;
+  border: 0;
+  border-top: 3px solid var(--border);
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.stepper button small {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+.stepper button.is-done {
+  border-top-color: var(--muted);
+}
+
+.stepper button[aria-current="true"] {
+  border-top-color: var(--text);
+  color: var(--text);
+}
+
+.pager-count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
 }
 
 body.cards .career-step {
@@ -267,6 +313,8 @@ body.cards .pager {
 /* Tiles that open into a sheet (How I work, Beyond work) */
 body.cards .skill-grid,
 body.cards .beyond-screen {
+  margin: 0;
+  border: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -497,9 +545,18 @@ body.cards .beyond-card.is-open .music-visual {
   grid-template-columns: 1fr;
 }
 
+body.cards .beyond-card.is-open .music-visual {
+  height: auto;
+  overflow: visible;
+  border: 0;
+  background: none;
+}
+
 body.cards .beyond-card.is-open .music-visual img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 body.cards .beyond-card.is-open .music-card-links {

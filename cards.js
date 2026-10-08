@@ -11,7 +11,7 @@
   ];
   const sections = tabs.map((t) => document.getElementById(t.id));
   let built = false;
-  let tabbar, scrim, steps, dots, prev, next;
+  let tabbar, scrim, steps, dots, prev, next, count;
   let current = 0;
 
   function build() {
@@ -82,6 +82,23 @@
     });
     steps.forEach((s) => list.appendChild(s));
 
+    const labels = { 1: ["2006", "Fortis"], 2: ["2013", "Engagor"], 3: ["2017", "HubSpot"], 4: ["Next", "Who knows?"] };
+    const stepper = document.createElement("div");
+    stepper.className = "stepper";
+    stepper.setAttribute("role", "group");
+    stepper.setAttribute("aria-label", "Career steps");
+    dots = steps.map((step, i) => {
+      const n = parseInt(step.querySelector(".career-number").textContent, 10);
+      const [when, who] = labels[n] || ["", ""];
+      const d = document.createElement("button");
+      d.type = "button";
+      d.innerHTML = `${who}<small>${when}</small>`;
+      d.addEventListener("click", () => showStep(i));
+      stepper.appendChild(d);
+      return d;
+    });
+    list.before(stepper);
+
     const pager = document.createElement("div");
     pager.className = "pager";
     prev = document.createElement("button");
@@ -94,17 +111,9 @@
     next.className = "pager-btn";
     next.setAttribute("aria-label", "Next role");
     next.textContent = "→";
-    const dotWrap = document.createElement("div");
-    dotWrap.className = "pager-dots";
-    dots = steps.map((_, i) => {
-      const d = document.createElement("button");
-      d.type = "button";
-      d.setAttribute("aria-label", `Step ${i + 1} of ${steps.length}`);
-      d.addEventListener("click", () => showStep(i));
-      dotWrap.appendChild(d);
-      return d;
-    });
-    pager.append(prev, dotWrap, next);
+    count = document.createElement("span");
+    count.className = "pager-count";
+    pager.append(prev, count, next);
     list.after(pager);
 
     prev.addEventListener("click", () => showStep(current - 1));
@@ -123,7 +132,11 @@
   function showStep(i) {
     current = Math.max(0, Math.min(steps.length - 1, i));
     steps.forEach((s, n) => s.classList.toggle("is-current", n === current));
-    dots.forEach((d, n) => d.setAttribute("aria-current", String(n === current)));
+    dots.forEach((d, n) => {
+      d.setAttribute("aria-current", String(n === current));
+      d.classList.toggle("is-done", n < current);
+    });
+    count.textContent = `${current + 1} of ${steps.length}`;
     prev.disabled = current === 0;
     next.disabled = current === steps.length - 1;
   }
