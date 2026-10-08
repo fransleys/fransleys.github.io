@@ -148,7 +148,7 @@
       const close = document.createElement("button");
       close.type = "button";
       close.className = "sheet-close";
-      close.textContent = "Close ×";
+      close.textContent = "← Back";
       close.addEventListener("click", (e) => { e.stopPropagation(); closeSheet(); });
       card.prepend(close);
 
@@ -164,7 +164,7 @@
   function openSheet(card) {
     closeSheet();
     card.classList.add("is-open");
-    // The scrim lives inside the section so it dims the tiles but not the sheet.
+    // Keep the (hidden) scrim inside the section.
     card.closest("main > section").appendChild(scrim);
     scrim.classList.add("is-on");
     card.scrollTop = 0;

@@ -452,6 +452,7 @@ body.cards .beyond-card:not(.is-open) .photo-gallery .gallery-item::after {
 
 /* Open state: a sheet over the page */
 .scrim {
+  display: none;
   position: fixed;
   z-index: 1;
   inset: 0;
@@ -475,39 +476,33 @@ body.cards .is-open > .sheet-close {
   top: 0;
   z-index: 3;
   display: block;
-  margin: -6px -6px 6px auto;
-  padding: 8px 14px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
+  margin: 0 0 14px;
+  padding: max(14px, env(safe-area-inset-top, 0px)) 0 10px;
+  border: 0;
   background: var(--background);
-  color: var(--text);
+  color: var(--muted);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
+/* An open tile takes over the whole stage, same background as the page,
+   so it reads as the next screen rather than a popup. */
 body.cards .skill-card.is-open,
 body.cards .beyond-card.is-open {
-  position: fixed;
+  position: absolute;
   z-index: 2;
-  right: 10px;
-  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
-  left: 10px;
-  max-height: 82dvh;
+  inset: 0;
   display: block;
-  padding: 18px 20px 24px;
+  max-height: none;
+  padding: 0 20px 28px;
   overflow-y: auto;
   overscroll-behavior: contain;
-  border-color: var(--border);
-  border-radius: 20px;
-  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+  background: var(--background);
   cursor: default;
   transform: none;
-  animation: sheet-in 280ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
-}
-
-body.cards .beyond-card.is-open {
-  top: max(14px, env(safe-area-inset-top, 0px));
-  max-height: none;
+  animation: sheet-in 260ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
 }
 
 body.cards .skill-card.is-open::after,
@@ -516,7 +511,7 @@ body.cards .beyond-card.is-open::after {
 }
 
 @keyframes sheet-in {
-  from { opacity: 0; translate: 0 40px; }
+  from { opacity: 0; translate: 24px 0; }
   to { opacity: 1; translate: 0 0; }
 }
 
@@ -563,13 +558,17 @@ body.cards .beyond-card.is-open .music-card-links {
   position: static;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+  margin-top: 28px;
   padding: 0;
   background: none;
 }
 
 body.cards .beyond-card.is-open .music-card-links a {
-  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px;
   border: 1px solid var(--border);
   border-radius: 10px;
 }
@@ -601,8 +600,13 @@ body.cards .beyond-card.is-open .photo-gallery .gallery-item::after {
 
 body.cards .beyond-card.is-open .gallery-more {
   position: static;
-  display: inline-flex;
-  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding: 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
 }
 
 body.cards .beyond-card.is-open .photo-gallery.gallery-scrolling + .gallery-more {
