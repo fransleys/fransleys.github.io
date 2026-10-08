@@ -1,0 +1,615 @@
+/* Mobile "cards" mode. Only active when cards.js adds body.cards (phones).
+   Desktop is untouched. Each section is one full screen, a tab bar switches
+   between them, and longer content opens in a sheet instead of scrolling. */
+
+body.cards {
+  --tabbar: calc(64px + env(safe-area-inset-bottom, 0px));
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+html.cards-on {
+  scroll-behavior: auto;
+}
+
+body.cards .site-header,
+body.cards footer {
+  display: none;
+}
+
+/* Stage: everything between the top of the screen and the tab bar. */
+body.cards .site-content,
+body.cards main {
+  width: 100%;
+  margin: 0;
+}
+
+body.cards main {
+  position: fixed;
+  inset: 0 0 var(--tabbar) 0;
+  overflow: hidden;
+}
+
+body.cards main > section {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  min-height: 0;
+  margin: 0;
+  padding: max(20px, env(safe-area-inset-top, 0px)) 20px 16px;
+  border: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+body.cards main > section:not(.is-active) {
+  display: none !important;
+}
+
+body.cards main > section.is-active {
+  display: flex;
+  animation: card-in 260ms ease both;
+}
+
+@keyframes card-in {
+  from { opacity: 0; translate: 0 10px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* Tab bar */
+.tabbar {
+  display: none;
+}
+
+body.cards .tabbar {
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: var(--tabbar);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  border-top: 1px solid var(--border);
+  background: rgba(11, 12, 14, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.tabbar button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tabbar button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tabbar button[aria-current="page"] {
+  color: var(--text);
+}
+
+.tabbar button[aria-current="page"] svg {
+  stroke: var(--accent);
+}
+
+/* Home */
+body.cards .hero {
+  display: none;
+  padding-top: max(20px, env(safe-area-inset-top, 0px));
+  gap: 16px;
+}
+
+body.cards .hero.is-active {
+  display: flex;
+}
+
+body.cards .hero .portrait {
+  order: -1;
+  width: 100%;
+  height: 32dvh;
+  max-height: 300px;
+  min-height: 140px;
+  margin: 0;
+  aspect-ratio: auto;
+}
+
+body.cards .hero .portrait img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+body.cards .hero h1 {
+  margin: 0 0 8px;
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+body.cards .hero .intro {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+body.cards .hero .bio {
+  margin: 0 0 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+@media (max-height: 700px) {
+  body.cards .hero .bio {
+    display: none;
+  }
+}
+
+/* Section headings: title only, the intro copy would not fit */
+body.cards .section-heading > p:not(.eyebrow),
+body.cards .music-heading > p {
+  display: none;
+}
+
+body.cards .section-heading,
+body.cards .music-heading {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body.cards main h2 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.1;
+}
+
+body.cards .eyebrow {
+  margin: 0 0 6px;
+}
+
+/* Career: one job per screen */
+body.cards .career-timeline {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.cards .career-step {
+  display: none;
+  padding: 0;
+  border: 0;
+  gap: 20px;
+}
+
+body.cards .career-step.is-current {
+  display: grid;
+  grid-template-columns: 1fr;
+  animation: card-in 260ms ease both;
+}
+
+body.cards .career-story h3 {
+  font-size: 1.4rem;
+}
+
+body.cards .career-story p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.pager {
+  display: none;
+}
+
+body.cards .pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pager-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.1rem;
+}
+
+.pager-btn:disabled {
+  opacity: 0.3;
+}
+
+.pager-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.pager-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.pager-dots button[aria-current="true"] {
+  background: var(--text);
+  transform: scale(1.3);
+}
+
+/* Tiles that open into a sheet (How I work, Beyond work) */
+body.cards .skill-grid,
+body.cards .beyond-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.cards .beyond-screen {
+  justify-content: flex-start;
+  padding-top: max(20px, env(safe-area-inset-top, 0px));
+}
+
+body.cards .music-heading {
+  order: -1;
+}
+
+body.cards .skill-card,
+body.cards .beyond-card {
+  position: relative;
+  display: block;
+  min-height: 0;
+  margin: 0;
+  padding: 18px 48px 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+body.cards .skill-card:active,
+body.cards .beyond-card:active {
+  transform: scale(0.985);
+  border-color: var(--accent);
+}
+
+body.cards .skill-card::after,
+body.cards .beyond-card::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  translate: 0 -50%;
+  color: var(--muted);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+body.cards .skill-card h3,
+body.cards .beyond-card h3 {
+  margin: 2px 0 0;
+  min-height: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+body.cards .skill-card .skill-number,
+body.cards .beyond-card .music-number {
+  margin: 0;
+  font-size: 0.72rem;
+}
+
+/* Closed state: title only for skills */
+body.cards .skill-card:not(.is-open) > p,
+body.cards .skill-card:not(.is-open) .language-chips {
+  display: none;
+}
+
+/* Closed state: short teaser plus one image for beyond cards */
+body.cards .beyond-card:not(.is-open) {
+  display: grid;
+  grid-template-columns: 1fr 34%;
+  grid-template-areas: "copy visual";
+  gap: 14px;
+  align-items: stretch;
+  padding: 14px 14px 14px 18px;
+  min-height: 116px;
+}
+
+body.cards .beyond-card:not(.is-open)::after {
+  display: none;
+}
+
+body.cards .beyond-card:not(.is-open) .music-story-copy {
+  grid-area: copy;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  align-self: center;
+}
+
+body.cards .beyond-card:not(.is-open) .music-story-copy p,
+body.cards .beyond-card:not(.is-open) .music-card-links,
+body.cards .beyond-card:not(.is-open) .gallery-more {
+  display: none;
+}
+
+body.cards .beyond-card:not(.is-open) .music-visual,
+body.cards .beyond-card:not(.is-open) .photo-gallery {
+  grid-area: visual;
+  position: static;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 90px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+body.cards .beyond-card:not(.is-open) .music-visual img,
+body.cards .beyond-card:not(.is-open) .photo-gallery img {
+  width: 100%;
+  height: 100%;
+  min-height: 90px;
+  object-fit: cover;
+}
+
+body.cards .beyond-card:not(.is-open) .music-visual img:not(:first-child),
+body.cards .beyond-card:not(.is-open) .photo-gallery .gallery-item:not(:first-child) {
+  display: none;
+}
+
+body.cards .beyond-card:not(.is-open) .photo-gallery .gallery-item {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+body.cards .beyond-card:not(.is-open) .photo-gallery .gallery-item::after {
+  display: none;
+}
+
+/* Open state: a sheet over the page */
+.scrim {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.scrim.is-on {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sheet-close {
+  display: none;
+}
+
+body.cards .is-open > .sheet-close {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: block;
+  margin: -6px -6px 6px auto;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+body.cards .skill-card.is-open,
+body.cards .beyond-card.is-open {
+  position: fixed;
+  z-index: 2;
+  right: 10px;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  left: 10px;
+  max-height: 82dvh;
+  display: block;
+  padding: 18px 20px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-color: var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  cursor: default;
+  transform: none;
+  animation: sheet-in 280ms cubic-bezier(0.2, 0.8, 0.25, 1) both;
+}
+
+body.cards .beyond-card.is-open {
+  top: max(14px, env(safe-area-inset-top, 0px));
+  max-height: none;
+}
+
+body.cards .skill-card.is-open::after,
+body.cards .beyond-card.is-open::after {
+  display: none;
+}
+
+@keyframes sheet-in {
+  from { opacity: 0; translate: 0 40px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+body.cards .skill-card.is-open h3,
+body.cards .beyond-card.is-open h3 {
+  margin: 4px 0 10px;
+  font-size: 1.6rem;
+}
+
+body.cards .is-open > p,
+body.cards .is-open .music-story-copy p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+body.cards .beyond-card.is-open .music-story-copy {
+  min-height: 0;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+body.cards .beyond-card.is-open .music-visual {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  grid-template-columns: 1fr;
+}
+
+body.cards .beyond-card.is-open .music-visual img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+body.cards .beyond-card.is-open .music-card-links {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  background: none;
+}
+
+body.cards .beyond-card.is-open .music-card-links a {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+/* Photography sheet: all photos in a tappable grid */
+body.cards .beyond-card.is-open .photo-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 4px !important;
+  height: auto !important;
+  max-width: none;
+  margin: 0 0 16px;
+  overflow: visible !important;
+  box-shadow: none !important;
+}
+
+body.cards .beyond-card.is-open .photo-gallery .gallery-item,
+body.cards .beyond-card.is-open .photo-gallery .gallery-item:nth-child(n) {
+  display: block !important;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  flex: none;
+}
+
+body.cards .beyond-card.is-open .photo-gallery .gallery-item::after {
+  display: none;
+}
+
+body.cards .beyond-card.is-open .gallery-more {
+  position: static;
+  display: inline-flex;
+  padding: 12px 0;
+}
+
+body.cards .beyond-card.is-open .photo-gallery.gallery-scrolling + .gallery-more {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+/* Language tooltips in the sheet read inline instead of floating */
+body.cards .is-open .language-chip {
+  flex-basis: 100%;
+}
+
+body.cards .is-open .language-tooltip {
+  position: static;
+  display: block;
+  width: auto;
+  max-width: none;
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  opacity: 1;
+  transform: none;
+}
+
+/* Contact */
+body.cards .contact {
+  display: none;
+  gap: 24px;
+}
+
+body.cards .contact.is-active {
+  display: flex;
+}
+
+body.cards .contact p {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+}
+
+body.cards .contact-links {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+body.cards .contact-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.cards main > section.is-active,
+  body.cards .career-step.is-current,
+  body.cards .is-open {
+    animation: none !important;
+  }
+}
