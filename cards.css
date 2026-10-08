@@ -742,3 +742,19 @@ body.cards .skill-grid {
 body.cards .language-chips {
   margin-top: 8px;
 }
+
+/* Open Beyond pages: text and links first, imagery below */
+body.cards .beyond-card.is-open {
+  display: flex;
+  flex-direction: column;
+}
+
+body.cards .beyond-card.is-open > .sheet-close { order: 0; }
+body.cards .beyond-card.is-open > .music-story-copy { order: 1; margin-bottom: 24px; }
+body.cards .beyond-card.is-open > .gallery-more { order: 2; margin: 0 0 24px; }
+body.cards .beyond-card.is-open > .music-visual,
+body.cards .beyond-card.is-open > .photo-gallery { order: 3; }
+
+body.cards .beyond-card.is-open > * {
+  flex: none;
+}
